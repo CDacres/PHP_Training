@@ -17,9 +17,15 @@
       }
       return $words;
     }
+    function show_result($wordNumArray) {
+      foreach ($wordNumArray as $word => $num) {
+        echo $word." ".$num.PHP_EOL;
+      }
+    }
   }
 
   $test = new Wordcount;
   $splitSentence = $test->break_into_words("This is a wordcount function written in PHP. PHP is a bit tricker than Ruby!");
-  print_r($test->count_words($splitSentence));
+  $result = $test->count_words($splitSentence);
+  $test->show_result($result);
 ?>
