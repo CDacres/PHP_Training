@@ -1,12 +1,12 @@
 <?php
   class Wordcount {
-    function break_into_words($sentence) {
+    function breakIntoWords($sentence) {
       $punctuation = array(",", ";", ".", "?", "!");
       $sentence = strtolower($sentence);
       $sentence = str_replace($punctuation, "", $sentence);
       return explode(' ',$sentence);
     }
-    function count_words($sentenceArray) {
+    function countWords($sentenceArray) {
       $words = array();
       foreach ($sentenceArray as $key => $value) {
         if (array_key_exists($value, $words)) {
@@ -17,7 +17,7 @@
       }
       return $words;
     }
-    function show_result($wordNumArray) {
+    function showResult($wordNumArray) {
       foreach ($wordNumArray as $word => $num) {
         echo $word." ".$num.PHP_EOL;
       }
@@ -25,7 +25,7 @@
   }
 
   $test = new Wordcount;
-  $splitSentence = $test->break_into_words("This is a wordcount function written in PHP. PHP is a bit tricker than Ruby!");
-  $result = $test->count_words($splitSentence);
-  $test->show_result($result);
+  $splitSentence = $test->breakIntoWords("This is a wordcount function written in PHP. PHP is a bit tricker than Ruby!");
+  $result = $test->countWords($splitSentence);
+  $test->showResult($result);
 ?>
